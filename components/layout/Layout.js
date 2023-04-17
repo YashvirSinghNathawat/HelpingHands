@@ -1,8 +1,10 @@
 import Head from 'next/head'
-import React, { useState } from 'react'
+import React, { createContext, useState } from 'react'
 import styled,{ createGlobalStyle, ThemeProvider } from 'styled-components';
-import Header from './Header'
+import Header from './header/Header'
 import themes from './themes';
+
+const App = createContext();
 
 const Layout = ({children}) => {
   const [theme,setTheme] = useState('light');
@@ -11,13 +13,15 @@ const Layout = ({children}) => {
     setTheme(theme=="light"?"dark":"light");
   }
   return (
+      <App.Provider value={{changeTheme, theme}}>
       <ThemeProvider theme={themes[theme]}>
-      <LayoutWrapper onClick={changeTheme}>
+      <LayoutWrapper>
         <GlobalStyle/>
         <Header />
         {children}
         </LayoutWrapper>
       </ThemeProvider>
+      </App.Provider>
     
     
   )
@@ -27,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 `
 
@@ -37,3 +42,4 @@ const LayoutWrapper = styled.div`
   color: ${(props) => props.theme.color};
 `
 export default Layout
+export {App};
