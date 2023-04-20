@@ -1,18 +1,23 @@
-import React from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { App } from '../Layout';
 
 const HeaderNav = () => {
+  const Router = useRouter();
+  const ThemeToggler = useContext(App);
   return (
-    <HeaderNavWrapper>
-      <HeaderNavLinks  >
+    <HeaderNavWrapper >
+      <Link passHref href={'/'}><HeaderNavLinks active={Router.pathname == "/" ? true : false} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Campaigns
-      </HeaderNavLinks>
-     <HeaderNavLinks  >
+      </HeaderNavLinks></Link>
+      <Link passHref href={'/createCampaign'}><HeaderNavLinks active={Router.pathname == "/createCampaign" ? true : false} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Create Campaign
-      </HeaderNavLinks>
-      <HeaderNavLinks  >
+      </HeaderNavLinks></Link>
+      <Link passHref href={'/dashboard'}><HeaderNavLinks active={Router.pathname == "/dashboard" ? true : false}  themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Dashboard
-      </HeaderNavLinks>
+      </HeaderNavLinks></Link>
     </HeaderNavWrapper>
   )
 }
@@ -20,17 +25,19 @@ const HeaderNav = () => {
 const HeaderNavWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: ${(props) => props.theme.bgDiv};
   padding: 6px;
   height: 50%;
+  width: 35%;
   border-radius: 10px;
+  
 `
 const HeaderNavLinks = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.bgSubDiv};
+  justify-content: center;
+  background-color: ${(props) => props.theme.bgSubDiv };
   height: 100%;
   font-family: 'Roboto';
   margin: 5px;
@@ -40,7 +47,10 @@ const HeaderNavLinks = styled.div`
   text-transform: uppercase;
   font-weight: bold;
   font-size: small;
+  color: ${(props) => props.themeColor};
+  width: 100%;
 `
+
 
 
 export default HeaderNav
