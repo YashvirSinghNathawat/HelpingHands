@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import styled from 'styled-components'
 import FormLeftWrapper from './Module/FormLeftWrapper'
 import FormRightWrapper from './Module/FormRightWrapper'
 
+const FormState = createContext();
+
 const Form = () => {
+    const [form,setForm] = useState({
+        campaignTitle: "",
+        story: "",
+        requiredAmount: "",
+        category:"Education"
+    });
+
+    const [image,setImage] = useState(null);
+    const ImageHandler = (e) => {
+        setImage(e.target.files[0]);
+    }
+    const formHandler = (e) => {
+        setForm({
+            ...form,
+            [e.target.name] : e.target.value
+        })
+    }
   return (
+    <FormState.Provider value={{form,setForm,image,setImage,ImageHandler,formHandler}} >
     <FormWrapper>
         <FormMain>
             <FormTitle>
@@ -16,6 +36,7 @@ const Form = () => {
             </FormInputsWrapper>
         </FormMain>
     </FormWrapper>
+    </FormState.Provider>
   )
 }
 
@@ -49,3 +70,4 @@ const FormInputsWrapper = styled.div`
 
 `
 export default Form
+export {FormState};
