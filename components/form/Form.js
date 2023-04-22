@@ -2,7 +2,6 @@ import React, { createContext, useState } from 'react'
 import styled from 'styled-components'
 import FormLeftWrapper from './Module/FormLeftWrapper'
 import FormRightWrapper from './Module/FormRightWrapper'
-
 const FormState = createContext();
 
 const Form = () => {
@@ -14,6 +13,9 @@ const Form = () => {
     });
 
     const [image,setImage] = useState(null);
+    const [storyUrl,setStoryUrl] = useState();
+    const [uploaded, setUploaded] = useState(false);
+    const [imageDetail,setImageDetail] = useState();
     const ImageHandler = (e) => {
         setImage(e.target.files[0]);
     }
@@ -24,7 +26,7 @@ const Form = () => {
         })
     }
   return (
-    <FormState.Provider value={{form,setForm,image,setImage,ImageHandler,formHandler}} >
+    <FormState.Provider value={{form,setForm,image,setImage,ImageHandler,formHandler,storyUrl,imageDetail,uploaded,setUploaded,setImageDetail,setStoryUrl}} >
     <FormWrapper>
         <FormMain>
             <FormTitle>

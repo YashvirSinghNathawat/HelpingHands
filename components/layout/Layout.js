@@ -1,20 +1,21 @@
-import Head from 'next/head'
+
 import React, { createContext, useState } from 'react'
 import styled,{ createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './header/Header'
 import themes from './themes';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 const App = createContext();
-
 const Layout = ({children}) => {
   const [theme,setTheme] = useState('light');
-
+  
   const changeTheme = () => {
     setTheme(theme=="light"?"dark":"light");
   }
   return (
       <App.Provider value={{changeTheme, theme}}>
       <ThemeProvider theme={themes[theme]}>
+        <ToastContainer />
       <LayoutWrapper>
         <GlobalStyle/>
         <Header />

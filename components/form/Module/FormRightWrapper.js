@@ -1,110 +1,162 @@
-import { useContext } from "react"
-import styled from "styled-components"
-import { FormState } from "../Form"
+import { useContext, useState } from "react";
+import { TailSpin } from "react-loader-spinner";
+import { toast } from "react-toastify";
+import styled from "styled-components";
+import { FormState } from "../Form";
 
+require("dotenv").config({ path: "./.env.local" });
 
 const FormRightWrapper = () => {
   const Handler = useContext(FormState);
+  const [uploadLoading, setUploadLoading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
+  const uploadFiles = async (e) => {
+    e.preventDefault();
+    setUploadLoading(true);
+    if (Handler.image !== null) {
+      try {
+        const formData = new FormData();
+        const fileInput = Handler.image;
+        formData.append("file", fileInput);
+        formData.append("upload_preset", "helping-hand");
+        const data = await fetch(
+          `https://api.cloudinary.com/v1_1/dlcibzu5m/image/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        ).then((r) => r.json());
+        console.log("data", data.secure_url);
+        Handler.setImageUrl(added.path);
+      } catch (error) {
+        toast.warn(`Error Uploading Image`);
+      }
+    }
+
+    setUploadLoading(false);
+    setUploaded(true);
+    Handler.setUploaded(true);
+    toast.success("Files Uploaded Sucessfully")
+  };
   return (
     <FormRight>
       <FormInput>
         <FormRow>
           <RowFirstInput>
-          <label>Required Amount</label>
-           <Input type={'number'} onChange={Handler.formHandler} value={Handler.form.requiredAmount} placeholder="Enter required amount" name='requiredAmount'></Input>
+            <label>Required Amount</label>
+            <Input
+              type={"number"}
+              onChange={Handler.formHandler}
+              value={Handler.form.requiredAmount}
+              placeholder="Enter required amount"
+              name="requiredAmount"
+            ></Input>
           </RowFirstInput>
           <RowSecondInput>
-          <label>Choose Category</label>
-           <Select onChange={Handler.formHandler} value={Handler.form.category} name='category'>
-            <option>Education</option>
-            <option>Health</option>
-            <option>Animal</option>
-           </Select>
+            <label>Choose Category</label>
+            <Select
+              onChange={Handler.formHandler}
+              value={Handler.form.category}
+              name="category"
+            >
+              <option>Education</option>
+              <option>Health</option>
+              <option>Animal</option>
+            </Select>
           </RowSecondInput>
         </FormRow>
       </FormInput>
       <FormInput>
         <label>Select Image</label>
-        <Image type={'file'} onChange={Handler.ImageHandler} name='image'  accept='image/*'>
-        </Image>
+        <Image
+          type={"file"}
+          onChange={Handler.ImageHandler}
+          name="image"
+          accept="image/*"
+        ></Image>
       </FormInput>
-      <Button >
-          Upload Photo
+      {uploadLoading == true ? (
+        <Button>
+          <TailSpin color="#fff" height={20} />
         </Button>
-      <Button>
-        Start Campaign
-      </Button>
+      ) : uploaded == false ? (
+        <Button onClick={uploadFiles}>Upload Files to IPFS</Button>
+      ) : (
+        <Button style={{ cursor: "no-drop" }}>
+          Files uploaded Sucessfully
+        </Button>
+      )}
+      <Button>St art Campaign</Button>
     </FormRight>
-  )
-}
+  );
+};
 
 const FormRight = styled.div`
   width: 45%;
-`
+`;
 const FormInput = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: 'poppins';
+  font-family: "poppins";
   margin-top: 1vh;
-`
+`;
 const FormRow = styled.div`
   display: flex;
-  justify-content:space-between;
-  width:100% ;
-`
+  justify-content: space-between;
+  width: 100%;
+`;
 const Input = styled.input`
   padding: 1.8vh;
   margin-top: 0.5vh;
-  color: ${(props)=>props.theme.color};
+  color: ${(props) => props.theme.color};
   font-size: large;
   border: none;
   border-radius: 1vh;
   outline: none;
-  background-color: ${(props)=> props.theme.bgDiv};
+  background-color: ${(props) => props.theme.bgDiv};
   width: 100%;
-
-`
+`;
 const RowFirstInput = styled.div`
-  display:flex ;
-  flex-direction:column ;
-  width:45% ;
-`
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+`;
 const RowSecondInput = styled.div`
-  display:flex ;
-  flex-direction:column;
-  width:45%;
-`
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+`;
 
 const Select = styled.select`
   padding: 10%;
   margin-top: 0.5vh;
-  color: ${(props)=>props.theme.color};
+  color: ${(props) => props.theme.color};
   font-size: large;
   border: none;
   border-radius: 1vh;
   outline: none;
-  background-color: ${(props)=> props.theme.bgDiv};
+  background-color: ${(props) => props.theme.bgDiv};
   width: 100%;
-`
+`;
 
 const Image = styled.input`
-  background-color:${(props) => props.theme.bgDiv} ;
-  color:${(props) => props.theme.color} ;
-  margin-top:4px;
-  border:none ;
-  border-radius:8px ;
-  outline:none;
-  font-size:large;
-  width:100% ;
+  background-color: ${(props) => props.theme.bgDiv};
+  color: ${(props) => props.theme.color};
+  margin-top: 4px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: large;
+  width: 100%;
   &::-webkit-file-upload-button {
-    padding: 15px ;
-    background-color: ${(props) => props.theme.bgSubDiv} ;
-    color: ${(props) => props.theme.color} ;
-    outline:none ;
-    border:none ;
-    font-weight:bold ;
-  }  
-`
+    padding: 15px;
+    background-color: ${(props) => props.theme.bgSubDiv};
+    color: ${(props) => props.theme.color};
+    outline: none;
+    border: none;
+    font-weight: bold;
+  }
+`;
 const Button = styled.button`
   width: 100%;
   margin-top: 3vh;
@@ -120,6 +172,5 @@ const Button = styled.button`
   font-weight: bold;
   font-size: large;
   cursor: pointer;
-
-`
-export default FormRightWrapper
+`;
+export default FormRightWrapper;
