@@ -27,7 +27,7 @@ const FormRightWrapper = () => {
           }
         ).then((r) => r.json());
         console.log("data", data.secure_url);
-        Handler.setImageUrl(added.path);
+        Handler.setImageUrl(data.secure_url);
       } catch (error) {
         toast.warn(`Error Uploading Image`);
       }
@@ -86,7 +86,7 @@ const FormRightWrapper = () => {
           Files uploaded Sucessfully
         </Button>
       )}
-      <Button>St art Campaign</Button>
+      <Button onClick={Handler.startCampaign}>Start Campaign</Button>
     </FormRight>
   );
 };

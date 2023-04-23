@@ -6,7 +6,7 @@ contract CampaignFactory {
     address[] public deployedCampaigns;
      
      event campaignCreated(
-         string title,
+            string title,
             uint requiredAmount,
             address indexed owner,
             address campaignAddress,
@@ -20,9 +20,9 @@ contract CampaignFactory {
         uint requiredCampaignAmount,
         string memory imgURI,
         string memory category,
-        string memory storyURI
+        string memory story
     ) public {
-        Campaign newCampaign = new Campaign(campaignTitle,requiredCampaignAmount,imgURI,storyURI);
+        Campaign newCampaign = new Campaign(campaignTitle,requiredCampaignAmount,imgURI,story);
 
         deployedCampaigns.push(address(newCampaign));
         emit campaignCreated(campaignTitle, requiredCampaignAmount, msg.sender, address(newCampaign), imgURI, block.timestamp, category);
