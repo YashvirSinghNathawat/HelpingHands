@@ -26,8 +26,6 @@ contract CampaignFactory {
 
         deployedCampaigns.push(address(newCampaign));
         emit campaignCreated(campaignTitle, requiredCampaignAmount, msg.sender, address(newCampaign), imgURI, block.timestamp, category);
-
-
     }
 }
 

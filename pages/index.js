@@ -1,56 +1,154 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import EventIcon from "@mui/icons-material/Event";
 import PaidIcon from "@mui/icons-material/Paid";
 import Image from "next/image";
+import { ethers } from "hardhat";
+import CampaignFactory from "../artifacts/contracts/Campaign.sol/CampaignFactory.json";
+require("dotenv").config({ path: "./.env.local" });
 
-const index = () => {
+const index = ({ AllData, HealthData, EducationData, AnimalData }) => {
+  const [filter, setFilter] = useState(AllData);
   return (
     <HomeWrapper>
       <FilterWrapper>
-      <FilterAltIcon style={{fontSize:40}} />
-        <Category>Health</Category>
-        <Category>Education</Category>
-        <Category>Animal</Category>
+        <FilterAltIcon style={{ fontSize: 40 }} />
+        <Category onClick={() => setFilter(AllData)}>All</Category>
+        <Category onClick={() => setFilter(HealthData)}>Health</Category>
+        <Category onClick={() => setFilter(EducationData)}>Education</Category>
+        <Category onClick={() => setFilter(AnimalData)}>Animal</Category>
       </FilterWrapper>
 
       <CardsWrapper>
-        <Card>
-          <CardImg>
-            <Image
-              alt="Crowdfunding dapp"
-              layout="fill"
-              src="https://th.bing.com/th/id/R.e5b2c41a0ad4270f4f5e93c0dd179807?rik=%2fGTzWNp%2bgHG5bA&riu=http%3a%2f%2fwww.thebrandbite.com%2fwp-content%2fmedia%2f2015%2f07%2fapple-7.jpg&ehk=saAP6a9SQpJk7MWpy48N8xroyzdOU%2buuwArpCCHTKNE%3d&risl=&pid=ImgRaw&r=0"
-            />
-          </CardImg>
-          <Title>Treatment for my Dog</Title>
-          <CardData>
-            <Text>
-              Owner <AccountBoxIcon />
-            </Text>
-            <Text>0xc2o4r23nrnjwknr3j32nri23r32hir</Text>
-          </CardData>
-          <CardData>
-            <Text>
-              Amount
-              <PaidIcon />
-            </Text>
-            <Text>100 Matic</Text>
-          </CardData>
-          <CardData>
-            <Text>
-              <EventIcon />
-            </Text>
-            <Text>2/2/2022 , 4:00:09 PM</Text>
-          </CardData>
-          <Button>Go to Campaign</Button>
-        </Card>
+        {filter.map((e) => {
+          return (
+            <Card>
+              <CardImg>
+                <Image
+                  alt="Crowdfunding dapp"
+                  layout="fill"
+                  src= {e.image}
+                />
+              </CardImg>
+              <Title>{e.title}</Title>
+              <CardData>
+                <Text>
+                  Owner <AccountBoxIcon />
+                </Text>
+                <Text>{e.owner.slice(0,6)}...{e.owner.slice(39)}</Text>
+              </CardData>
+              <CardData>
+                <Text>
+                  Amount
+                  <PaidIcon />
+                </Text>
+                <Text>{e.requiredAmount} Matic</Text>
+              </CardData>
+              <CardData>
+                <Text>
+                  <EventIcon />
+                </Text>
+                <Text>{new Date(e.timeStamp*1000).toTimeString()}</Text>
+              </CardData>
+              <Button>Go to Campaign</Button>
+            </Card>
+          );
+        })}
       </CardsWrapper>
     </HomeWrapper>
   );
 };
+
+export async function getStaticProps() {
+  const provider = new ethers.providers.JsonRpcProvider(
+    process.env.NEXT_PUBLIC_RPC_URL
+  );
+  const contract = new ethers.Contract(
+    process.env.NEXT_PUBLIC_ADDRESS,
+    CampaignFactory.abi,
+    provider
+  );
+  const getAllCampaigns = contract.filters.campaignCreated();
+  const AllCampaigns = await contract.queryFilter(getAllCampaigns);
+  const AllData = AllCampaigns.map((e) => {
+    return {
+      title: e.args.title,
+      image: e.args.imgURI,
+      owner: e.args.owner,
+      timeStamp: parseInt(e.args.timestamp),
+      requiredAmount: parseInt(e.args.requiredAmount)
+    };
+  });
+  const getHealthCampaigns = contract.filters.campaignCreated(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Health"
+  );
+  const HealthCampaigns = await contract.queryFilter(getHealthCampaigns);
+  const HealthData = HealthCampaigns.map((e) => {
+    return {
+      title: e.args.title,
+      image: e.args.imgURI,
+      owner: e.args.owner,
+      timeStamp: parseInt(e.args.timestamp),
+      requiredAmount: parseInt(e.args.requiredAmount)
+    };
+  });
+  const getEducationCampaigns = contract.filters.campaignCreated(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Education"
+  );
+  const EducationCampaigns = await contract.queryFilter(getEducationCampaigns);
+  const EducationData = EducationCampaigns.map((e) => {
+    return {
+      title: e.args.title,
+      image: e.args.imgURI,
+      owner: e.args.owner,
+      timeStamp: parseInt(e.args.timestamp),
+      requiredAmount: parseInt(e.args.requiredAmount)
+    };
+  });
+
+  const getAnimalCampaigns = contract.filters.campaignCreated(
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Animal"
+  );
+  const AnimalCampaigns = await contract.queryFilter(getAnimalCampaigns);
+  const AnimalData = AnimalCampaigns.map((e) => {
+    return {
+      title: e.args.title,
+      image: e.args.imgURI,
+      owner: e.args.owner,
+      timeStamp: parseInt(e.args.timestamp),
+      requiredAmount: parseInt(e.args.requiredAmount)
+    };
+  });
+
+  return {
+    props: {
+      AllData,
+      HealthData,
+      EducationData,
+      AnimalData,
+    },
+  };
+}
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -76,11 +174,11 @@ const Category = styled.div`
 
 const CardsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
+  justify-content: flex-start;
+  gap: 3vw;
   width: 80%;
   margin-top: 2vh;
+  flex-wrap: wrap;
 `;
 const Card = styled.div`
   width: 20%;

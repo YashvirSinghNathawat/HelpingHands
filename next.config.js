@@ -7,7 +7,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['th.bing.com','https://cloudinary.com/']
+    domains: ['th.bing.com','res.cloudinary.com','thumb1.shutterstock.com']
   }
 }
 
