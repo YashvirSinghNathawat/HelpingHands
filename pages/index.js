@@ -7,6 +7,7 @@ import PaidIcon from "@mui/icons-material/Paid";
 import Image from "next/image";
 import { ethers } from "hardhat";
 import CampaignFactory from "../artifacts/contracts/Campaign.sol/CampaignFactory.json";
+import Link from "next/link";
 require("dotenv").config({ path: "./.env.local" });
 
 const index = ({ AllData, HealthData, EducationData, AnimalData }) => {
@@ -52,7 +53,10 @@ const index = ({ AllData, HealthData, EducationData, AnimalData }) => {
                 </Text>
                 <Text>{new Date(e.timeStamp*1000).toTimeString()}</Text>
               </CardData>
+              <Link passHref href={'/'+e.address}>
               <Button>Go to Campaign</Button>
+              </Link>
+              
             </Card>
           );
         })}

@@ -41,6 +41,7 @@ contract Campaign {
     uint public receivedAmount;
 
     event donated(address indexed donar,uint indexed amount,uint indexed timestamp);
+    
     constructor(
         string memory campaignTitle,
         uint requiredCampaignAmount,
