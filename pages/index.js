@@ -78,7 +78,8 @@ export async function getStaticProps() {
       image: e.args.imgURI,
       owner: e.args.owner,
       timeStamp: parseInt(e.args.timestamp),
-      requiredAmount: parseInt(e.args.requiredAmount)
+      requiredAmount: ethers.utils.formatEther(e.args.requiredAmount),
+      address: e.args.campaignAddress
     };
   });
   const getHealthCampaigns = contract.filters.campaignCreated(
@@ -97,7 +98,8 @@ export async function getStaticProps() {
       image: e.args.imgURI,
       owner: e.args.owner,
       timeStamp: parseInt(e.args.timestamp),
-      requiredAmount: parseInt(e.args.requiredAmount)
+      requiredAmount: ethers.utils.formatEther(e.args.requiredAmount),
+      address: e.args.campaignAddress
     };
   });
   const getEducationCampaigns = contract.filters.campaignCreated(
@@ -116,7 +118,8 @@ export async function getStaticProps() {
       image: e.args.imgURI,
       owner: e.args.owner,
       timeStamp: parseInt(e.args.timestamp),
-      requiredAmount: parseInt(e.args.requiredAmount)
+      requiredAmount: ethers.utils.formatEther(e.args.requiredAmount),
+      address: e.args.campaignAddress
     };
   });
 
@@ -136,7 +139,8 @@ export async function getStaticProps() {
       image: e.args.imgURI,
       owner: e.args.owner,
       timeStamp: parseInt(e.args.timestamp),
-      requiredAmount: parseInt(e.args.requiredAmount)
+      requiredAmount: ethers.utils.formatEther(e.args.requiredAmount),
+      address: e.args.campaignAddress
     };
   });
 

@@ -47,10 +47,11 @@ const Form = () => {
         CampaignFactory.abi,
         signer
     );
+    const campaignAmount = ethers.utils.parseEther(form.requiredAmount);
 
     const campaignData = await contract.createCampaign(
         form.campaignTitle,
-        parseInt(form.requiredAmount),
+        campaignAmount,
         imageUrl,
         form.category,
         form.story

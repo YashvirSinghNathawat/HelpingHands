@@ -6,7 +6,7 @@ contract CampaignFactory {
     address[] public deployedCampaigns;
      
      event campaignCreated(
-            string title,
+         string title,
             uint requiredAmount,
             address indexed owner,
             address campaignAddress,
@@ -20,12 +20,14 @@ contract CampaignFactory {
         uint requiredCampaignAmount,
         string memory imgURI,
         string memory category,
-        string memory story
+        string memory storyURI
     ) public {
-        Campaign newCampaign = new Campaign(campaignTitle,requiredCampaignAmount,imgURI,story);
+        Campaign newCampaign = new Campaign(campaignTitle,requiredCampaignAmount,imgURI,storyURI,msg.sender);
 
         deployedCampaigns.push(address(newCampaign));
         emit campaignCreated(campaignTitle, requiredCampaignAmount, msg.sender, address(newCampaign), imgURI, block.timestamp, category);
+
+
     }
 }
 
@@ -43,13 +45,14 @@ contract Campaign {
         string memory campaignTitle,
         uint requiredCampaignAmount,
         string memory imgURI,
-        string memory storyURI
+        string memory storyURI,
+        address campaignOwner
         ){
             title = campaignTitle;
             requiredAmount = requiredCampaignAmount;
             image = imgURI;
             story = storyURI; 
-            owner = payable(msg.sender);
+            owner = payable(campaignOwner);
     }
     function donate() public payable{
         require(requiredAmount > receivedAmount , "required amount fulfilled");
