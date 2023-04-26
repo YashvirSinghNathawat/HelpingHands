@@ -100,9 +100,12 @@ const Form = () => {
             <Address>
                 <h1>Campaign Started Successfully</h1>
                 <h1> {address}</h1>
+                <Link passHref href='../../pages/index.js'>
                 <Button>
                     Go To Campaign
                 </Button>
+                </Link>
+                
             </Address>
           ) : (
             <FormContainer>
