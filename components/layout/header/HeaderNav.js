@@ -3,21 +3,33 @@ import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { App } from '../Layout';
+import { Context } from './Clients';
 
 const HeaderNav = () => {
-  const Router = useRouter();
+  const router = useRouter();
   const ThemeToggler = useContext(App);
+  const { user, setUser } = useContext(Context);
   return (
     <HeaderNavWrapper >
-      <Link passHref href={'/'}><HeaderNavLinks active={Router.pathname == "/" ? true : false} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+      <HeaderNavLinks onClick={()=> router.push('/')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+        Home
+      </HeaderNavLinks>
+      <HeaderNavLinks onClick={()=> router.push('/about')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+        About
+      </HeaderNavLinks>
+      <HeaderNavLinks  onClick={()=> router.push('/contactus')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+        Contact Us
+      </HeaderNavLinks>
+      { user._id ?<>
+      <HeaderNavLinks  onClick={()=> router.push('/seeCampaigns')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Campaigns
-      </HeaderNavLinks></Link>
-      <Link passHref href={'/createCampaign'}><HeaderNavLinks active={Router.pathname == "/createCampaign" ? true : false} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+      </HeaderNavLinks>
+      <HeaderNavLinks  onClick={()=> router.push('/createCampaign')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Create Campaign
-      </HeaderNavLinks></Link>
-      <Link passHref href={'/dashboard'}><HeaderNavLinks active={Router.pathname == "/dashboard" ? true : false}  themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
+      </HeaderNavLinks>
+      <HeaderNavLinks  onClick={()=> router.push('/dashboard')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Dashboard
-      </HeaderNavLinks></Link>
+      </HeaderNavLinks></>:<></>}
     </HeaderNavWrapper>
   )
 }
@@ -25,30 +37,28 @@ const HeaderNav = () => {
 const HeaderNavWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: ${(props) => props.theme.bgDiv};
-  padding: 6px;
-  height: 50%;
-  width: 35%;
-  border-radius: 10px;
-  
+  justify-content: space-around;
+  /* background-color: ${(props) => props.theme.bgDiv}; */
+  padding: 2vh;
+  gap: 2vw;
 `
 const HeaderNavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => props.theme.bgSubDiv };
-  height: 100%;
+  /* gap: 1vh; */
+  /* background-color: ${(props) => props.theme.bgSubDiv }; */
+  white-space: nowrap;
   font-family: 'Roboto';
-  margin: 5px;
   border-radius: 10px;
-  padding: 0 5px 0 5px;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
   font-size: small;
   color: ${(props) => props.themeColor};
-  width: 100%;
+  width:  100%;
+  height: 30%;
+  padding: 1vw;
 `
 
 

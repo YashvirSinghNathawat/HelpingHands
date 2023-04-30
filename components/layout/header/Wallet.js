@@ -51,15 +51,14 @@ const Wallet = () => {
 const ConnectWalletWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.bgDiv};
+  justify-content: center;
+  /* background-color: ${(props) => props.theme.bgDiv}; */
   padding: 5px 9px;
-  height: 100%;
+  /* height: 100%; */
   color: ${(props) => props.theme.color};
   border-radius: 10px;
-  margin-right: 15px;
-  font-family: 'Roboto';
-  font-weight: bold;
+  font-family: 'poppins';
+  white-space: nowrap;
   font-size: small;
   cursor: pointer;
 `;

@@ -4,6 +4,8 @@ import Header from "./header/Header";
 import themes from "./themes";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { ContextProvider } from "./header/Clients";
+
 const App = createContext();
 const Layout = ({ children }) => {
   const [theme, setTheme] = useState("light");
@@ -16,9 +18,13 @@ const Layout = ({ children }) => {
       <ThemeProvider theme={themes[theme]}>
         <ToastContainer />
         <LayoutWrapper>
+          <ContextProvider>
+            <>
           <GlobalStyle />
           <Header />
           {children}
+          </>
+          </ContextProvider>
         </LayoutWrapper>
       </ThemeProvider>
     </App.Provider>
