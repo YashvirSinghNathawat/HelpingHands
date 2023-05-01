@@ -1,6 +1,7 @@
 import Layout from "../components/layout/Layout";
 import '../styles/global.css'
 import '../styles/button.css'
+import '../styles/footer.css'
 function MyApp({Component,pageProps}){
     return (
         <Layout>

@@ -1,0 +1,99 @@
+.row {
+    padding: 1em 1em;
+  }
+  .row.primary {
+    display: grid;
+    grid-template-columns: 3fr 2fr 4fr;
+    align-items: stretch;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    min-height: 15em;
+  }
+  .location{
+    display: flex;
+  }
+  .text{
+    margin-top: 5px;
+  }
+  .h3Tag {
+    text-align: center;
+    /* color: white; */
+    font-size: 1.4em;
+    white-space: nowrap;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+  }
+  li:not(:first-child) {
+    margin-top: 0.8em;
+  }
+  ul li a {
+    /* color: #a7a7a7; */
+    text-decoration: none;
+  }
+  ul li a:hover {
+    color: #c7940a;
+  }
+  .about p {
+    text-align: justify;
+    line-height: 2;
+    margin: 0;
+  }
+  .Newsletter{
+    margin-right: 1vh;
+   
+  }
+  .emailbox{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .email,
+  .subscribe {
+    font-size: 1em;
+    padding: 1em;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  .subscribe {
+    background-color: #c7940a;
+    color: #ffffff;
+  }
+  div.social {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.4em;
+    flex-direction: row;
+    margin-top: 0.5em;
+  }
+  .social i {
+    color: #bac6d9;
+  }
+  .copyright {
+    padding: 0.3em 1em;
+  }
+  .footer-menu{
+    float: left;
+    display: flex;
+    margin-top: 10px;
+  }
+  .footer-menu a{
+    padding: 6px;
+    text-decoration: none;
+  }
+  .footer-menu a:hover, .social i:hover{
+    color: #c7940a;
+  }
+  .copyright p {
+    font-size: 0.9em;
+    text-align: right;
+    margin-right: 1vw;
+  }

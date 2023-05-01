@@ -5,6 +5,7 @@ import themes from "./themes";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { ContextProvider } from "./header/Clients";
+import Footer from "./footer/Footer";
 
 const App = createContext();
 const Layout = ({ children }) => {
@@ -22,7 +23,10 @@ const Layout = ({ children }) => {
             <>
           <GlobalStyle />
           <Header />
+          <Body>
           {children}
+          </Body>
+          <Footer />
           </>
           </ContextProvider>
         </LayoutWrapper>
@@ -45,5 +49,8 @@ const LayoutWrapper = styled.div`
   background-image: ${(props) => props.theme.bgImage};
   color: ${(props) => props.theme.color};
 `;
+const Body = styled.div`
+  min-height: 80vh;
+`
 export default Layout;
 export { App };

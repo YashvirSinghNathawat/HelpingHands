@@ -61,6 +61,7 @@ const Form = () => {
 
     await campaignData.wait();
     setAddress(campaignData.to);
+    
   }
   const ImageHandler = (e) => {
     setImage(e.target.files[0]);
