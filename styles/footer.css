@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 3fr 2fr 4fr;
     align-items: stretch;
+    background-color: #575756;
   }
   .column {
     display: flex;
@@ -79,11 +80,13 @@
   }
   .copyright {
     padding: 0.3em 1em;
+    background-color: #282828;
   }
   .footer-menu{
     float: left;
     display: flex;
     margin-top: 10px;
+    margin-left: 30px;
   }
   .footer-menu a{
     padding: 6px;
@@ -95,5 +98,5 @@
   .copyright p {
     font-size: 0.9em;
     text-align: right;
-    margin-right: 1vw;
+    margin-right: 10vw;
   }

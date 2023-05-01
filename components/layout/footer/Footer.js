@@ -63,7 +63,7 @@ const Footer = () => {
           <a href="">Terms Of Service</a>
           <a href="">Support</a>
         </div>
-        <p>Copyright &copy; 2023</p>
+        <p>Copyright &copy; 2023 Helping Hands | All Rights Reserved</p>
       </div>
     </FooterContainer>
   );
