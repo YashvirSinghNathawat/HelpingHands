@@ -36,7 +36,7 @@ const Header = () => {
 };
 
 const HeaderContainer = styled.div`
-  margin-bottom: 10vh;
+  /* margin-bottom: 2vh; */
 `;
 const HeaderMain = styled.div`
   width: 100%;
