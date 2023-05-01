@@ -1,15 +1,22 @@
 import styled from "styled-components"
-
+import Image from "next/image"
 const HeaderLogo = () => {
   return (
-    <Logo>Helping-Hands</Logo>
+    <Logo>
+    <Image src="/myLogo.png" layout="fill"/>
+    </Logo>
   )
 }
 
-const Logo = styled.h1`
-    font-weight: bold;
-    font-size: 30px;
-    margin-left: 1vh;
-    font-family: 'DynaPuff';
+const Logo = styled.div`
+  width: 15%;
+  height: 60%;
+  margin: 0;
+  padding: 0;
+  margin-left: 15vh;
+  position: relative;
+  border-radius: 1vh;
+  border: solid 3px white;
 `
+
 export default HeaderLogo

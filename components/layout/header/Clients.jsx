@@ -49,14 +49,14 @@ export const LogoutButton = () => {
     <>
       {user._id ? (
         <button className="btn" onClick={logoutHandler} style={{
-          color: ThemeToggler.theme=='light' ? 'black':'white',
+          color: 'white',
           backgroundColor: ThemeToggler.theme=='light' ? 'white':'black',
         }}>
           LogOut
         </button>
       ) : (
         <button className="btn" onClick={() => router.push("/login")} style={{
-          color: ThemeToggler.theme=='light' ? 'black':'white',
+          color: 'white',
           backgroundColor: ThemeToggler.theme=='light' ? 'white':'black',
         }}>LogIn</button>
       )}

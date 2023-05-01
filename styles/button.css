@@ -9,7 +9,7 @@
   line-height: 20px;
   list-style: none;
   margin: 0;
-  padding: 10px 12px;
+  padding: 8px 12px;
   text-align: center;
   transition: all 200ms;
   vertical-align: baseline;
@@ -17,4 +17,5 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  background: linear-gradient(145deg,#bc04c7 0%,#59009b 100%);
 }

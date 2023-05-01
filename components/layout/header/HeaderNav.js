@@ -58,7 +58,7 @@ const HeaderNavLinks = styled.div`
   color: ${(props) => props.themeColor};
   width:  100%;
   height: 30%;
-  padding: 1vw;
+  /* padding: 0.5vw; */
 `
 
 

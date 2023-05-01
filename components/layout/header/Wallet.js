@@ -42,8 +42,7 @@ const Wallet = () => {
   };
   return (
     <ConnectWalletWrapper onClick={connectWallet}>
-      {address == '' ? <Address>Connect Wallet</Address>: <Address>{address.slice(0,6)}...{address.slice(39)}</Address>}
-        {balance == '' ? <Balance></Balance>:<Balance>{balance.slice(0,4)} Matic</Balance>}
+      {address == '' ? <Address>Connect MetaMask</Address>: <Address>{address.slice(0,6)}...{address.slice(39)} {balance.slice(0,4)} Matic</Address>}
     </ConnectWalletWrapper>
   );
 };
@@ -52,32 +51,37 @@ const ConnectWalletWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: ${(props) => props.theme.bgDiv}; */
-  padding: 5px 9px;
-  /* height: 100%; */
-  color: ${(props) => props.theme.color};
+  gap: 1.5vw;
+  color: white;
   border-radius: 10px;
-  font-family: 'poppins';
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   white-space: nowrap;
-  font-size: small;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
   cursor: pointer;
+  
 `;
 
 const Address = styled.h2`
-    background-color: ${(props) => props.theme.bgSubDiv};
+    background: linear-gradient(145deg,#bc04c7 0%,#59009b 100%);
+     padding: 8px 12px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 5px 0 5px;
     border-radius: 10px;
+    
 `
 
 const Balance = styled.h2`
     display: flex;
+    padding: 8px 12px;
+    background: linear-gradient(145deg,#bc04c7 0%,#59009b 100%);
     height: 100%;
     align-items: center;
     justify-content: center;
     margin-right: 1vh;
+    border-radius: 10px;
 `
 export default Wallet;

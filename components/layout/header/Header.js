@@ -13,7 +13,9 @@ import ModeNightIcon from "@mui/icons-material/ModeNight";
 const Header = () => {
   const ThemeToggler = useContext(App);
   return (
-    <HeaderContainer>
+    <HeaderContainer style={{
+      borderBottom: `solid 0.5px ${ThemeToggler.theme=='light'?'#bcbbbb':'#3D4143'}`
+    }}>
       <HeaderMain>
         <HeaderLogo />
         <HeaderNav />
@@ -33,7 +35,9 @@ const Header = () => {
   );
 };
 
-const HeaderContainer = styled.div``;
+const HeaderContainer = styled.div`
+  margin-bottom: 10vh;
+`;
 const HeaderMain = styled.div`
   width: 100%;
   height: 10vh;
