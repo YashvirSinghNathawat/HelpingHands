@@ -1,10 +1,4 @@
 
-  
-  :root {
-    --heights: 100vh;
-    --widths: 100%;
-  }
-  
   .slider-container {
     height: var(--heights);
     width: var(--widths);

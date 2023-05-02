@@ -27,6 +27,6 @@ const SliderContainer = styled.div`
   box-sizing: border-box;
   margin: 0;
   height: 90vh;
-  width: 100%;
+  width: 100vw;
 `
 export default Slider;
