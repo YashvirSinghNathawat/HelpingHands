@@ -1,0 +1,425 @@
+/* @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); */
+
+* {
+    box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+
+html { 
+    min-width: 100%; 
+    /* height: 100%;  */
+} 
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    min-width: 100%;
+    height: 100%; 
+    position:absolute;
+} 
+
+#about-header {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#about-header-div {
+    text-align: center;
+}
+
+#about-header-div h1{
+    color: #383636;
+    font-weight: 500;
+}
+
+#about-header-div h6{
+    margin-top: 1rem;
+    color: #4e4c4c;
+    font-weight: normal;
+}
+
+#about-header img {
+    display: block;
+    width: 100%;
+}
+
+#mission-section {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+#mission-cards-div {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 7rem;
+    margin-top: 2rem;
+}
+
+.product {
+    margin: 1rem;
+    transform: translate(0, 0);
+    width: 220px;
+    height: 240px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.product .imgbox {
+    height: 100%;
+    box-sizing: border-box
+}
+
+.product .imgbox h3 {
+     margin-top: 1rem;
+}
+
+.product .imgbox img {
+    display: block;
+    width: 80%;
+    margin: 10px auto 0
+}
+
+.specifies {
+    position: absolute;
+    width: 100%;
+    bottom: -160px;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: .5s
+}
+
+.specifies p {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    margin-bottom: -2px;
+}
+
+.product:hover .specifies {
+    bottom: 0
+}
+
+.specifies h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    width: 100%
+}
+
+.specifies h2 span {
+    font-size: 15px;
+    color: #ccc;
+    font-weight: normal
+}
+
+.specifies .price {
+    position: absolute;
+    right: 25px;
+    font-weight: bold;
+    color: #000;
+    font-size: 30px
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px
+}
+
+ ul {
+    margin: 0;
+    padding: 0 
+}  
+
+ul li {
+    list-style: none;
+    margin: 5px 5px 0;
+    font-size: 15px;
+    font-style: normal;
+    color: #ccc
+} 
+
+ul li:first-child {
+    margin-left: 0
+} 
+
+ul.colors li {
+    width: 15px;
+    height: 15px
+}
+
+ul.colors li:nth-child(1) {
+    background: #4A148C
+} 
+
+ul.colors li:nth-child(2) {
+    background: #F50057
+}
+
+ul.colors li:nth-child(3) {
+    background: #536DFE
+}
+
+ul.colors li:nth-child(4) {
+    background: #388E3C
+}
+
+ ul.colors li:nth-child(5) {
+    background: #FF6D00
+}
+
+ .btn {
+    display: block;
+    padding: 5px;
+    color: #fff;
+    width: 100%;
+    font-size: 13px;
+    border-radius: 2px
+} 
+
+#about-us-main {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+} 
+
+#about-us-main p{
+    font-size: 1rem;
+    line-height: 1.6rem;
+    margin-top: 3rem;
+    margin: 2rem 7rem;
+    color: rgb(100, 99, 99);
+}
+
+#goals {
+    margin: 3rem;
+    text-align: center;
+    margin-bottom: 12vh;
+}
+
+#goals-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#goals-div {
+    margin-top: -4rem;
+    text-align: center;
+} 
+
+#goal-name {
+    height: 70px;
+    width: 400px;
+    border-radius: 100px;
+}
+
+#goal-name:nth-child(2n+1) h5 {
+    float: left;
+    position: relative;
+    top: 1.2rem;
+    left: 2rem;
+    color: rgb(255, 255, 255);
+}
+
+#goal-name:nth-child(2n) {
+    margin-left: 19rem;
+    float: right;
+    background-color: rgb(251,167,4);
+    margin-top: 3rem;
+}
+
+#goal-name:nth-child(2n) h5 {
+    float: right;
+    position: relative;
+    right: 2rem;
+    top: 1.2rem;
+    color: white;
+}
+
+#goal-name:nth-child(2n+1) {
+    margin-right: 19rem;
+    background-color: rgb(0,78,126);
+    margin-top: 10rem;
+}
+
+#goals-hr {
+    position: absolute;
+    margin-top: 3rem;
+    border-radius: 5rem;
+    width: 20px;
+    height: 39rem;
+    color: rgb(117, 116, 116);
+}
+
+#goal-icon {
+    position: relative;
+    float: right;
+    margin: 3px 8px 0 0;
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 4;
+}
+
+#goal-icon img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+#goal-name:nth-child(2n) #goal-icon {
+    position: relative;
+    float: left;
+    margin: 3px 0 0 5px;
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 4;
+} 
+
+@media screen and (max-width: 700px) {
+    #goals-hr {
+        display: none;
+    }
+    #goal-name:nth-child(2n) {
+        margin-left: 0rem;
+    }
+    #goal-name:nth-child(2n+1) {
+        margin-right: 0rem;
+    }
+    #goal-name:nth-child(2n+1) #goal-icon {
+        float: left;
+        margin: 3px 0 0 5px;
+    }
+    #goal-name:nth-child(2n+1) h5 {
+        float: right;
+        margin-right: 4.5rem;
+    }
+}
+
+#whoweserve {
+    display: flex;
+    margin: 5rem 0rem 0rem 0rem ;
+    background-color: rgb(235,235,235);
+}
+
+#serve-img img{
+    height: 32rem;
+    width: 35rem;
+    margin: 2rem 0rem;
+    border-radius: 6rem;
+
+}
+
+#serve-content {
+    text-align: center;
+    width: 40%;
+    margin-left: 6rem;
+    margin-top: 3rem;
+}
+
+#how-to-help {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+#how-to-help-main {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+}
+.help-img {
+    height: 13rem;
+}
+#how-to-help-main img{
+    width: 10rem;
+}
+
+#how-to-help-main div {
+    width: 12rem;
+}
+
+#how-to-help-main p {
+text-align: left;
+}
+
+#how-to-help-main h3 {
+    text-align: left;
+    }
+
+    #team-main {
+        text-align: center;
+        margin: 3rem;
+    }
+    #team-main h1{
+        margin-bottom: 3rem;
+    }
+#team {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.team-member {
+    width: 25%;
+}
+
+.team-member li {
+    display: inline;
+}
+
+.team-member h4 {
+    margin-top: 2rem;
+}
+
+.team-member li img {
+    width: 1.3rem !important;
+}
+
+@media screen and (max-width: 700px) {
+    .product {
+        width: 60%;
+        height: 25rem;
+    }
+    #about-us-main p {
+        width: 80%;
+    margin: 2rem auto;
+    }
+    #how-to-help-main {
+        display: block;
+    }
+    .help-div {
+        width: 80%;
+        text-align: center;
+        margin: 2rem auto;
+    }
+    #whoweserve {
+        display: block;
+        text-align: center;
+    }
+    #serve-img {
+        border-radius: 10px;
+    }
+    #serve-content {
+        width: 80%;
+        margin: 2rem auto;
+    }
+    #team {
+        display: block;        
+    }
+    .team-member {
+        width: 80%;
+        text-align: center;
+        margin: 2rem auto;
+    }
+}
