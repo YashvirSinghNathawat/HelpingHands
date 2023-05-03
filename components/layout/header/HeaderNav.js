@@ -22,10 +22,10 @@ const HeaderNav = () => {
       </HeaderNavLinks>
       { user._id ?<>
       <HeaderNavLinks  onClick={()=> router.push('/seeCampaigns')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
-        Campaigns
+        Drive
       </HeaderNavLinks>
       <HeaderNavLinks  onClick={()=> router.push('/createCampaign')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
-        Create Campaign
+        Create Drive
       </HeaderNavLinks>
       <HeaderNavLinks  onClick={()=> router.push('/dashboard')} themeColor = {ThemeToggler.theme =='light'?'black':'white'}>
         Dashboard

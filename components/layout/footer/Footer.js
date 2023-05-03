@@ -10,14 +10,14 @@ const Footer = () => {
     const ThemeToggler = useContext(App);
   return (
     <FooterContainer >
-      <div class="row primary">
-        <div class="column about">
-          <h3 class="h3Tag">Connect</h3>
+      <div className="row primary">
+        <div className="column about">
+          <h3 className="h3Tag">Connect</h3>
           <div className="location">
           <PlaceIcon /> 
-          <div class="text">Shop No. 196, Vaishali Nagar, Near T Mall, Jaipur, Rajasthan</div>
+          <div className="text">Shop No. 196, Vaishali Nagar, Near T Mall, Jaipur, Rajasthan</div>
           </div>
-          <div class="social">
+          <div className="social">
             <FacebookIcon />
             <TwitterIcon />
             <LinkedInIcon />
@@ -25,8 +25,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div class="column link">
-          <h3 class="h3Tag">Links</h3>
+        <div className="column link">
+          <h3 className="h3Tag">Links</h3>
           <ul>
             <li>
               <a href="#home">Home</a>
@@ -43,20 +43,20 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div class="column Newsletter">
-          <h3 class="h3Tag">Newsletter</h3>
+        <div className="column Newsletter">
+          <h3 className="h3Tag">Newsletter</h3>
           <div className="emailbox">
             <input
-              class="email"
+              className="email"
               type="email"
               placeholder="Your email id here"
             />
-            <button class="subscribe">Subscribe</button>
+            <button className="subscribe">Subscribe</button>
           </div>
         </div>
       </div>
-      <div class="row copyright">
-        <div class="footer-menu">
+      <div className="row copyright">
+        <div className="footer-menu">
           <a href="">Home</a>
           <a href="">F.A.Q</a>
           <a href="">Cookies Policy</a>
