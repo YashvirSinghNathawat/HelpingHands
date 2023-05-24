@@ -8,6 +8,7 @@ import FormRightWrapper from "./Module/FormRightWrapper";
 const FormState = createContext();
 import CampaignFactory from "../../artifacts/contracts/Campaign.sol/CampaignFactory.json"
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 
 
@@ -63,7 +64,8 @@ const Form = () => {
     setAddress(campaignData.to);
     
   }
-  const ImageHandler = (e) => {
+  const router = useRouter();
+  const Imag eHandler = (e) => {
     setImage(e.target.files[0]);
   };
   const formHandler = (e) => {
@@ -103,12 +105,9 @@ const Form = () => {
             <Address>
                 <h1>Campaign Started Successfully</h1>
                 <h1> {address}</h1>
-                <Link passHref href='../../pages/index.js'>
-                <Button>
+                <Button  onClick={()=> router.push('/')}>
                     Go To Campaign
                 </Button>
-                </Link>
-                
             </Address>
           ) : (
             <FormContainer>
@@ -177,6 +176,7 @@ const Button = styled.button`
     justify-content: center;
     align-items: center;
     width: 30%;
+    height: 10%;
     padding: 1.5vh;
     color: white;
     background-color: #00b712;

@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
         select: false,
         required: true,
         minLength: [6,"Password too short"],
-    }
+    },
 });
 
 mongoose.models = {};

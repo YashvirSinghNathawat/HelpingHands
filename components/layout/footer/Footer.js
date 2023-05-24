@@ -29,16 +29,16 @@ const Footer = () => {
           <h3 className="h3Tag">Links</h3>
           <ul>
             <li>
-              <a href="#home">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#team">Team</a>
+              <a href="/about">Team</a>
             </li>
             <li>
               <a href="#blogs">Blogs</a>
             </li>
             <li>
-              <a href="#support">Support</a>
+              <a href="/contactus">Support</a>
             </li>
           </ul>
         </div>
@@ -57,7 +57,7 @@ const Footer = () => {
       </div>
       <div className="row copyright">
         <div className="footer-menu">
-          <a href="">Home</a>
+          <a href="/">Home</a>
           <a href="">F.A.Q</a>
           <a href="">Cookies Policy</a>
           <a href="">Terms Of Service</a>

@@ -60,7 +60,6 @@ const ConnectWalletWrapper = styled.div`
   font-weight: 500;
   line-height: 20px;
   cursor: pointer;
-  
 `;
 
 const Address = styled.h2`

@@ -80,7 +80,7 @@ const FormRightWrapper = () => {
           <TailSpin color="#fff" height={20} />
         </Button>
       ) : uploaded == false ? (
-        <Button onClick={uploadFiles}>Upload Files to IPFS</Button>
+        <Button onClick={uploadFiles}>Upload Images</Button>
       ) : (
         <Button style={{ cursor: "no-drop" }}>
           Files uploaded Sucessfully

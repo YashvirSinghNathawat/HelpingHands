@@ -27,7 +27,10 @@ const register = () => {
         },
       });
       const data = await res.json();
-      if(!data.success) toast.error(data.message);
+      if(!data.success) { 
+        toast.error(data.message);
+        return;
+      }
       setUser(data.user);
       toast.success(data.message);
       router.push("/");
@@ -78,7 +81,7 @@ const Container = styled.div`
 	width: 100%;
   height: 80vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 `
 const SignUpContainer = styled.div`
   width: 40%;
