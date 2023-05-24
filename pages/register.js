@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components'
 import { Context } from '../components/layout/header/Clients';
 
-const register = () => {
+const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -147,4 +147,4 @@ const Buttons = styled.div`
   gap: 2vh;
 `
 
-export default register
+export default Register

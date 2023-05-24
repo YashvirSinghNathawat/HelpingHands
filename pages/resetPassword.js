@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 
-const resetPassword = () => {
+const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const router = useRouter();
@@ -123,4 +123,4 @@ const Button = styled.button`
   font-size: large;
   border-radius: 1vh;
 `;
-export default resetPassword;
+export default ResetPassword;

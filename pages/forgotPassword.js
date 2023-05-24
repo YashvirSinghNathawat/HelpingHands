@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 
-const forgotPassword = () => {
+const ForgotPassword = () => {
     const [email, setEmail] = useState("");
     const forgotPasswordHandler = async (e) => {
       e.preventDefault();
@@ -107,4 +107,4 @@ const Button = styled.button`
   font-size: large;
   border-radius: 1vh;
 `;
-export default forgotPassword
+export default ForgotPassword

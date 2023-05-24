@@ -6,6 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import PlaceIcon from '@mui/icons-material/Place';
 import { App } from "../Layout";
+import Link from "next/link";
 const Footer = () => {
     const ThemeToggler = useContext(App);
   return (
@@ -29,16 +30,16 @@ const Footer = () => {
           <h3 className="h3Tag">Links</h3>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="/about">Team</a>
+              <Link href="/about">Team</Link>
             </li>
             <li>
-              <a href="#blogs">Blogs</a>
+              <Link href="#blogs">Blogs</Link>
             </li>
             <li>
-              <a href="/contactus">Support</a>
+              <Link href="/contactus">Support</Link>
             </li>
           </ul>
         </div>
@@ -57,11 +58,11 @@ const Footer = () => {
       </div>
       <div className="row copyright">
         <div className="footer-menu">
-          <a href="/">Home</a>
-          <a href="">F.A.Q</a>
-          <a href="">Cookies Policy</a>
-          <a href="">Terms Of Service</a>
-          <a href="">Support</a>
+          <Link href="/">Home</Link>
+          <Link href="">F.A.Q</Link>
+          <Link href="">Cookies Policy</Link>
+          <Link href="">Terms Of Service</Link>
+          <Link href="">Support</Link>
         </div>
         <p>Copyright &copy; 2023 Helping Hands | All Rights Reserved</p>
       </div>

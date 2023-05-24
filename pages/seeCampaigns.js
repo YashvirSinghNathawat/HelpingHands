@@ -10,7 +10,7 @@ import CampaignFactory from "../artifacts/contracts/Campaign.sol/CampaignFactory
 import Link from "next/link";
 require("dotenv").config({ path: "./.env.local" });
 
-const seeCampaigns = ({ AllData, HealthData, EducationData, AnimalData }) => {
+const SeeCampaigns = ({ AllData, HealthData, EducationData, AnimalData }) => {
   const [filter, setFilter] = useState(AllData);
   return (
     <HomeWrapper>
@@ -25,7 +25,7 @@ const seeCampaigns = ({ AllData, HealthData, EducationData, AnimalData }) => {
       <CardsWrapper>
         {filter.map((e) => {
           return (
-            <Card>
+            <Card key={e.title}>
               <CardImg>
                 <Image
                   alt="Crowdfunding dapp"
@@ -251,4 +251,4 @@ const Button = styled.button`
   font-size: 14px;
   font-weight: bold;
 `;
-export default seeCampaigns;
+export default SeeCampaigns;

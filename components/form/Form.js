@@ -65,7 +65,7 @@ const Form = () => {
     
   }
   const router = useRouter();
-  const Imag eHandler = (e) => {
+  const ImageHandler = (e) => {
     setImage(e.target.files[0]);
   };
   const formHandler = (e) => {

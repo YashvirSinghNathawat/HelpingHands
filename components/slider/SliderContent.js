@@ -9,6 +9,7 @@ function SliderContent({ activeIndex, sliderImage }) {
       {sliderImage.map((slide, index) => (
         <div
           key={index}
+          alt={slide.title}
           className={index === activeIndex ? "slides active" : "inactive"}
          style={{
           width: '100%',

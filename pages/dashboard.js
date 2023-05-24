@@ -49,7 +49,7 @@ const Dashboard = () => {
       <CardsWrapper>
         {campaignsData.map((e) => {
           return (
-            <Card>
+            <Card key={e.title}>
               <CardImg>
                 <Image
                   alt="Crowdfunding dapp"

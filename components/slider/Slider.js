@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import SliderContent from "./SliderContent";
 import Arrows from "./Arrows";
-import sliderImage from "./sliderImage";
+import imageDetails from "./sliderImage";
 import styled from "styled-components";
 
-const len = sliderImage.length - 1;
+const len = imageDetails.length - 1;
 
 function Slider(props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,7 +18,7 @@ function Slider(props) {
 
   return (
     <SliderContainer>
-      <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
+      <SliderContent activeIndex={activeIndex} sliderImage={imageDetails} />
     </SliderContainer>
   );
 }

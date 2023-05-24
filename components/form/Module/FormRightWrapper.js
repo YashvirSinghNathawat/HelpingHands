@@ -70,6 +70,7 @@ const FormRightWrapper = () => {
         <label>Select Image</label>
         <Image
           type={"file"}
+          alt={"Image"}
           onChange={Handler.ImageHandler}
           name="image"
           accept="image/*"

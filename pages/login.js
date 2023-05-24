@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { user, setUser } = useContext(Context);
@@ -53,9 +53,9 @@ const login = () => {
             type="password"
             placeholder="Password"
           />
-          <a href="/forgotPassword" style={{ color: "red" }}>
+          <Link href="/forgotPassword" style={{ color: "red" }}>
             Forgot your password?
-          </a>
+          </Link>
           <Buttons>
             <Button type="submit">Sign In</Button>
             <Link
@@ -144,4 +144,4 @@ const Buttons = styled.div`
   width: 100%;
   gap: 2vh;
 `;
-export default login;
+export default Login;

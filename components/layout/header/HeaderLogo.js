@@ -3,7 +3,7 @@ import Image from "next/image"
 const HeaderLogo = () => {
   return (
     <Logo>
-    <Image src="/myLogo.png" layout="fill"/>
+    <Image src="/myLogo.png" layout="fill" alt="HeaderLogo"/>
     </Logo>
   )
 }

@@ -1,4 +1,4 @@
-export default [
+const imageDetails =  [
   {
     title: "Helping Hand",
     description: "Helping Hand is a donation website that aims to make it easy for people to support charitable causes and make a positive impact in the world. The website features a wide range of causes, including education, healthcare, environmental conservation, and poverty alleviation, among others.",
@@ -20,3 +20,5 @@ export default [
     urls: "/slider4.jpg",
   },
 ];
+
+export default imageDetails;

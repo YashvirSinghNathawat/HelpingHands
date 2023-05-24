@@ -47,7 +47,7 @@ export default function Detail({Data, DonationsData}) {
     }
 
     Request();
-  }, [change])
+  }, [change,Data])
 
 
   const DonateFunds = async () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const about = () => {
+const About = () => {
   return (
     <Wrapper>
     <AboutHeader>
@@ -222,4 +222,4 @@ const H1 = styled.h1`
   color: black
 `
 
-export default about
+export default About
